@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #100f13;
+}
+
+button {
+    cursor: pointer;
+    position: relative;
+    padding: 22px 46px;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: rgba(255, 255, 255, .1);
+    border: 3px solid rgba(255, 255, 255, .2);
+    border-radius: 18px;
+    transition: .4s;
+}
+
+button:hover {
+    z-index: 1;
+    border-color: transparent;
+    background: linear-gradient(
+        90deg,
+        #f9d923,
+        #00a19d,
+        #0c87b7,
+        #cb49ff,
+        #ff6666,
+        #f9d923
+    );
+    background-size: 400%;
+    box-shadow: 0 0 15px rgb(2, 4, 24);
+    animation: glow 12s linear forwards;
+}
+
+@keyframes glow {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 400%;
+    }
+
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    background: inherit;
+    filter: blur(36px);
+    opacity: 0;
+    transition: .4s ease-out;
+}
+
+button:hover::before {
+    opacity: 1; 
+    z-index: -1;
+}
